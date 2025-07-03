@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Personal Details</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close:hover {
+      color: #ccc;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      margin: 10px 20px;
+      z-index: 1001;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+    }
+
+    .close-btn {
+      display: none;
+      font-size: 30px;
+      color: white;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+      .hamburger {
+        display: block;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: #003366;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 75%;
+        padding: 60px 20px 20px;
+        transition: left 0.3s ease-in-out;
+        z-index: 1000;
+      }
+
+      .nav-links.show-nav {
+        left: 0;
+      }
+
+      .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+        font-size: 18px;
+        color: white;
+      }
+
+      .nav-links .profile-pic {
+        margin-bottom: 20px;
+      }
+
+      .close-btn {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hamburger icon -->
+  <div class="hamburger" id="hamburger">&#9776;</div>
+
+  <!-- Navbar -->
+  <nav class="nav-links" id="navLinks">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <img src="images/profile.jpg" alt="Profile" class="profile-pic" id="profileTrigger">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="/about"><i class="fas fa-user"></i> About</a>
+    <a href="/academic-details"><i class="fas fa-graduation-cap"></i> Academic Details</a>
+    <a href="/technical-skills"><i class="fas fa-code"></i> Technical Skills</a>
+    <a href="/academic-projects"><i class="fas fa-project-diagram"></i> Academic Projects</a>
+    <a href="/achievements"><i class="fas fa-trophy"></i> Achievements</a>
+    <a href="/interests"><i class="fas fa-heart"></i> Interests</a>
+    <a href="/personal-details"><i class="fas fa-id-card"></i> Personal Details</a>
+    <a href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+
+  <!-- Modal -->
+  <div id="profileModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="profileLarge">
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h2>Personal Details</h2>
+    <ul>
+      <li><strong>Name:</strong> Rahul Pravin Sawant</li>
+      <li><strong>Gender:</strong> Male</li>
+      <li><strong>Marital Status:</strong> Unmarried</li>
+      <li><strong>DOB:</strong> 14 September 2003</li>
+      <li><strong>Nationality:</strong> Indian</li>
+      <li><strong>Languages:</strong> English, Hindi, Marathi</li>
+      <li><strong>Email:</strong> sawantrahul145@gmail.com</li>
+      <li><strong>Mobile:</strong> 7588693659</li>
+      <li><strong>Whatsapp:</strong> 9405452659</li>
+      <li><strong>Address:</strong> Hewale, Tervan Medhe, Dodamarg, Sindhudurg, Maharashtra - 416549</li>
+    </ul>
+  </div>
+
+  <!-- Script -->
+  <script>
+    // Profile modal
+    const modal = document.getElementById("profileModal");
+    const img = document.getElementById("profileTrigger");
+    const modalImg = document.getElementById("profileLarge");
+    const closeBtn = document.getElementsByClassName("close")[0];
+
+    img.onclick = function () {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+
+    closeBtn.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    modal.onclick = function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Hamburger menu
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    const closeNav = document.getElementById("closeBtn");
+    const navItems = navLinks.querySelectorAll("a");
+
+    hamburger.onclick = () => navLinks.classList.add("show-nav");
+    closeNav.onclick = () => navLinks.classList.remove("show-nav");
+    navItems.forEach(link => {
+      link.onclick = () => navLinks.classList.remove("show-nav");
+    });
+  </script>
+
+</body>
+</html>

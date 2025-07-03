@@ -1,0 +1,352 @@
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #8ec2f7;
+  color: #333;
+}
+
+/* === NAVBAR === */
+nav {
+  background-color: #003366;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background-color: #0055aa;
+  color: #fff;
+  border-radius: 5px;
+}
+
+nav a i {
+  margin-right: 8px;
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 15px;
+  object-fit: cover;
+  border: 2px solid white;
+  vertical-align: middle;
+}
+
+/* === CONTAINER (CARD) === */
+.container {
+  width: 90%;
+  max-width: 900px;
+  min-height: 500px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #d8dfd8;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  overflow: hidden;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+
+.container:hover {
+  background-color: #d4d6d4; /* light blue or any color you want */
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(88, 92, 86, 10.199);
+}
+/* === TEXT INSIDE CARDS === */
+.container h1,
+.container h2,
+.container h3 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #002244;
+  margin-bottom: 18px;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+.container p {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #333;
+  margin-bottom: 14px;
+}
+
+.container ul {
+  padding-left: 25px;
+  margin-bottom: 15px;
+  display: inline-block;
+  text-align: left;
+}
+
+.container li {
+  font-size: 25px;
+  color: #000;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.container strong {
+  font-weight: bold;
+  color: #002244;
+}
+
+/* === LINK STYLE === */
+.container a {
+  color: #000; /* black links */
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.container:hover p {
+  font-size: 28px;
+  font-weight: bold;
+  color: #001122; /* optional: darker shade for emphasis */
+  transition: all 0.3s ease-in-out;
+}
+
+/* === FLEX LAYOUTS === */
+.flex-two-column,
+.contact-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.achievement-left,
+.activity-right,
+.contact-info,
+.contact-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* === CONTACT IMAGE === */
+.contact-image img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: cover;
+  border: 3px solid #003366;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* === MEDIA QUERY: MOBILE === */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav a {
+    padding: 12px;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .container {
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .flex-two-column,
+  .contact-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .contact-image img {
+    margin-top: 20px;
+    max-width: 90%;
+  }
+}
+
+.achievement-block,
+.activity-block {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.achievement-block h2,
+.activity-block h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.contact-card {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  padding: 30px;
+  border-radius: 0px; /* makes it rectangular */
+  gap: 20px;
+}
+
+.contact-card .contact-info {
+  flex: 1;
+  text-align: left;
+  
+}
+
+.contact-card .contact-image img {
+  width: 300px;
+  height: 240px;
+  border-radius: 4px; /* rectangle with slightly rounded corners */
+  object-fit: cover;
+  border: 3px solid #003366;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* === Specific layout only for contact.html === */
+.contact-card {
+  max-width: 1000px;   /* Increased width */
+  width: 95%;
+}
+
+/* Ensure Email label and address stay inline */
+.contact-card li strong {
+  display: inline;
+  margin-right: 6px;
+  white-space: nowrap;
+}
+
+.contact-card li a {
+  display: inline;
+  white-space: nowrap;
+}
+
+/* === Hover effect for navbar profile image === */
+nav .profile-pic {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+nav .profile-pic:hover {
+  transform: scale(1.1); /* zoom-in effect */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* soft glow */
+}
+
+
+/* Hamburger icon hidden by default */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+/* Close button inside nav panel */
+.close-btn {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Navigation panel hidden by default (mobile) */
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    z-index: 1001;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #003366;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 75%;
+    padding: 60px 20px 20px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .nav-links.show-nav {
+    left: 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 12px 0;
+    text-align: left;
+    font-size: 18px;
+    color: white;
+  }
+
+  .nav-links .profile-pic {
+    margin-bottom: 20px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .close-btn {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links .profile-pic {
+    display: block;
+    margin: 10px auto 20px;
+  }
+}
+
